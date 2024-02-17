@@ -3,33 +3,51 @@ var uniqueValidator = require('mongoose-unique-validator');
 const bcrypt = require('bcrypt');
 
 const userSchema = new Schema({
-	username: {
-		type: String,
+    username: {
+        type: String,
+        required: true,
+        unique: true,
+        trim: true,
+        uniqueCaseInsensitive: true,
+    },
+    email: {
+        type: String,
+        required: true,
+        unique: true,
+        trim: true,
+        match: [/.+@.+\..+/, "Must match an email address!"],
+        uniqueCaseInsensitive: true,
+    },
+    password: {
+        type: String,
+        required: true,
+        trim: true,
+        minlength: 8,
+    },
+    portfolio: [
+        {
+            type: Schema.Types.ObjectId,
+            ref: "Portfolio",
+        },
+    ],
+    cash:{
+		type: Number,
 		required: true,
-		unique: true,
 		trim: true,
-		uniqueCaseInsensitive: true,
+		default: 100000,
 	},
-	email: {
-		type: String,
-		required: true,
-		unique: true,
-		trim: true,
-		match: [/.+@.+\..+/, 'Must match an email address!'],
-		uniqueCaseInsensitive: true,
-	},
-	password: {
-		type: String,
-		required: true,
-		trim: true,
-		minlength: 8,
-	},
-	portfolio: [
-		{
-			type: Schema.Types.ObjectId,
-			ref: 'Portfolio',
-		},
-	],
+});
+
+userSchema.virtual("totalValue").get(function () {
+    let totalValue = this.cash || 0;
+
+    if (this.portfolio && this.portfolio.length > 0) {
+        totalValue += this.portfolio.reduce((sum, portfolio) => {
+            return sum + (portfolio.portfolioValue || 0);
+        }, 0);
+    }
+
+    return totalValue;
 });
 
 userSchema.pre('save', async function (next) {
