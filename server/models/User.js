@@ -24,10 +24,10 @@ const userSchema = new Schema({
 		trim: true,
 		minlength: 8,
 	},
-	investment: [
+	portfolio: [
 		{
 			type: Schema.Types.ObjectId,
-			ref: 'Investment',
+			ref: 'Portfolio',
 		},
 	],
 });

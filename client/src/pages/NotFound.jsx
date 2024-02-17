@@ -1,6 +1,7 @@
 import { useLocation } from 'react-router-dom';
 import { LoginProvider } from '../utils/LoginContext';
 import Nav from '../components/Navbar/Nav';
+import charlie404 from '../assets/images/charlie.png';
 
 function NotFound() {
 	let location = useLocation();
@@ -15,6 +16,11 @@ function NotFound() {
 								No match for <code>{location.pathname}</code>
 							</h1>
 						</div>
+						<img
+							className="mx-auto rounded-3xl mb-4 shadow-2xl w-72 sm:w-96"
+							src={charlie404}
+							alt="404"
+						/>
 					</div>
 				</div>
 			</LoginProvider>
