@@ -13,7 +13,7 @@ export default function Nav({ links }) {
 			<div className="sm:flex justify-between items-center ">
 				<Link className="text-lg" to="/">
 					<h1 className="">
-						ZenVest
+						Top Picks
 					</h1>
 				</Link>
 				<div className="flex justify-end sm:justify-between space-x-5 text-lg sm:mt-0">

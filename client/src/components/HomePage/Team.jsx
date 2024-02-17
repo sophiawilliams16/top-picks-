@@ -1,34 +1,26 @@
 import Card from '../TeamCard/Card';
-import mary from '../../assets/images/mary.jpeg';
-import jamie from '../../assets/images/jamie.jpeg';
-import simon from '../../assets/images/simon.jpg';
-import breaux from '../../assets/images/breaux.jpeg';
 
 function Team() {
 	const team = [
 		{
-			img: mary,
 			name: 'Mary Holland Nader',
 			position: 'CEO / Founder',
 			description:
 				"Mary is a financier, influencer, and the Founder and CEO of ZenVest. She holds a Bachelor's degree with a double major in Finance and International Business from the University of Georgia. She is also currently a Wealth Management Analyst at Deutche Bank in New York City.",
 		},
 		{
-			img: jamie,
 			name: 'Jamie Haire',
 			position: 'COO',
 			description:
 				'Jamie is the COO of BRAVE Family Advisors, an investment management firm based in Summit, New Jersey. He graduated from Middlebury College with a Bachelor of Arts in History. He has a background in trading across multiple asset classes most recently at Millennium.',
 		},
 		{
-			img: simon,
 			name: 'Simon Brady',
 			position: 'Consultant',
 			description:
 				'Simon is a New York City based certified financial planner originally from the UK. In 2016 he founded Anglia Advisors, a personal finance and investment consultant firm. Prior to Anglia, he was a Senior Management Executive and Derivatives Broker at Tradition in London and New York. He holds a European Advanced Degree in Management Studies from NEOMA Business School and a CFP Certificate from NYU School of Professional Studies.',
 		},
 		{
-			img: breaux,
 			name: 'Breaux Nader',
 			position: 'Senior Financial Advisor',
 			description:
@@ -37,7 +29,7 @@ function Team() {
 	];
 
 	const renderCard = (team) => {
-		return Card(team.img, team.name, team.position, team.name);
+		return Card(team.name, team.position, team.name);
 	};
 
 	return (

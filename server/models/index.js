@@ -1,5 +1,5 @@
 const User = require('./User');
-const Portfolio = require('./Portfolio');
+//const Portfolio = require('./Portfolio');
 const Investment = require('./Investment');
 
-module.exports = { User, Portfolio, Investment };
+module.exports = { User, Investment };

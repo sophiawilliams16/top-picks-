@@ -107,7 +107,7 @@ export const LoginProvider = ({ children }) => {
 			if (response.ok) {
 				const data = await response.json();
 				toastSuccess(
-					`Welcome to ZenVest, ${data.userInfo.username}!`,
+					`Welcome to Top Picks, ${data.userInfo.username}!`,
 					'👋',
 				);
 				console.log(data);
