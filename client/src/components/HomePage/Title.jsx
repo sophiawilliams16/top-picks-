@@ -1,13 +1,15 @@
 function Title() {
 	return (
-		<section className="h-full w-full pt-6 pb-8 mb-4">
-			<h1>
-				<span className="bg-clip-text text-transparent transition-all duration-500 bg-gradient-to-r to-blue-300 via-pink-500 from-violet-300 bg-size-200 hover:bg-right font-bold text-5xl sm:text-7xl">
-					ZenVest
-				</span>
+		<section className="h-full w-full p-6 my-20 text-slate-700 text-center tracking-wide font-bold">
+			<h1 className="text-5xl sm:text-7xl font-extrabold tracking-wider">TRADE SPACE</h1>
+			<div className="font-bold py-10 text-lg sm:text-base">
+				<p>the no-stakes trading platform</p>
 				<br />
-				<p>Your financial empowerment simplified.</p>
-			</h1>
+				<p>build your portfolio to compete for your spot on the leaderboard</p>
+			</div>
+			<button className="text-slate-200 bg-slate-700 p-4 rounded-full">
+				View Live Leaderboard
+			</button>
 		</section>
 	);
 }

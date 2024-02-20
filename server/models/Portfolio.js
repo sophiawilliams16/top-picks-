@@ -12,11 +12,16 @@ const portfolioSchema = new Schema({
 			ref: 'Investment',
 		},
 	],
-	portfolioValue: {
-		type: Number, 
-		required: true, 
-		trim: true,
-	},
+});
+
+portfolioSchema.virtual("portfolioValue").get(function () {
+    if (this.investment && this.investment.length > 0) {
+        return this.investment.reduce((sum, investment) => {
+            return sum + (investment.currentValue * investment.quantity || 0);
+        }, 0);
+    } else {
+        return 0;
+    }
 });
 
 const Portfolio = model('Portfolio', portfolioSchema);

@@ -61,16 +61,15 @@ function CreatePortfolio() {
 	return (
 		<section className="w-full max-w-xl mx-auto">
 			<form
-				className="max-w-sm bg-white bg-opacity-10 rounded-lg bg-clip-padding
-				backdrop-filter backdrop-blur-lg px-8 pt-6 pb-8 mb-4 shadow-2xl mx-auto"
+				className="max-w-sm bg-slate-400 px-8 pt-6 pb-8 mb-4 shadow-2xl mx-auto rounded-lg"
 				onSubmit={handleFormSubmit}
 			>
 				<div className="mb-4 text-base sm:text-lg">
 					<label
-						className="block font-bold mb-2 text-white text-opacity-60"
+						className="block font-bold mb-2 text-slate-100"
 						htmlFor="portfolioName"
 					>
-						Portfolio Name
+						Ticker
 					</label>
 					<input
 						className="shadow appearance-none border rounded w-full py-2 px-3 leading-tight focus:outline-none"
@@ -83,12 +82,20 @@ function CreatePortfolio() {
 						onChange={handleChange}
 					/>
 				</div>
+				<div className=" text-sm sm:text-base">
+					<button
+						className="text-slate-100 bg-slate-700 font-bold rounded-full p-4 px-10"
+						type="submit"
+					>
+						Search Ticker
+					</button>
+				</div>
 				<div className="mb-4 text-base sm:text-lg">
 					<label
-						className="block font-bold mb-2 text-white text-opacity-60"
+						className="block font-bold mb-2 text-slate-100"
 						htmlFor="portfolioType"
 					>
-						Portfolio Type
+						Shares
 					</label>
 					<input
 						className="shadow appearance-none border rounded w-full py-2 px-3 leading-tight focus:outline-none"
@@ -101,13 +108,23 @@ function CreatePortfolio() {
 						onChange={handleChange}
 					/>
 				</div>
-				<div className="flex items-center justify-between text-sm sm:text-base">
-					<button
-						className="text-white transition-all duration-500 bg-gradient-to-r to-violet-500 via-pink-500 from-blue-500 bg-size-200 hover:bg-right font-bold rounded-lg py-2 px-4"
-						type="submit"
-					>
-						Create Portfolio
-					</button>
+				<div className='grid grid-cols-2 flex place-items-center'>
+					<div className="text-sm sm:text-base">
+						<button
+							className="text-slate-100 bg-slate-700 font-bold rounded-full p-4 px-10"
+							type="submit"
+						>
+							Buy
+						</button>
+					</div>
+					<div className="text-sm sm:text-base">
+						<button
+							className="text-slate-100 bg-slate-700 font-bold rounded-full p-4 px-10"
+							type="submit"
+						>
+							Sell
+						</button>
+					</div>
 				</div>
 			</form>
 		</section>

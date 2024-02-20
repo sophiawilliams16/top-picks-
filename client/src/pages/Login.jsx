@@ -38,13 +38,12 @@ const Login = () => {
 	return (
 		<section className="w-full max-w-xs mx-auto">
 			<form
-				className="h-full w-full bg-white bg-opacity-10 rounded-lg bg-clip-padding
-				backdrop-filter backdrop-blur-lg px-8 pt-6 pb-8 mb-4 shadow-2xl"
+				className="h-full w-full bg-slate-700 px-8 pt-6 pb-8 mb-4 shadow-2xl rounded-lg text-slate-700"
 				onSubmit={handleFormSubmit}
 			>
 				<div className="mb-4 text-base sm:text-lg">
 					<label
-						className="block font-bold mb-2 text-white text-opacity-60"
+						className="block font-bold mb-2 text-slate-100"
 						htmlFor="email"
 					>
 						Email
@@ -62,7 +61,7 @@ const Login = () => {
 				</div>
 				<div className="mb-4 text-base sm:text-lg">
 					<label
-						className="block font-bold mb-2 text-white text-opacity-60"
+						className="block font-bold mb-2 text-slate-100"
 						htmlFor="password"
 					>
 						Password
@@ -81,13 +80,13 @@ const Login = () => {
 				</div>
 				<div className="flex items-center justify-between text-sm sm:text-base">
 					<button
-						className="text-white transition-all duration-500 bg-gradient-to-r to-violet-500 via-pink-500 from-blue-500 bg-size-200 hover:bg-right font-bold rounded-lg py-2 px-4"
+						className="text-slate-700 bg-slate-200 hover:bg-slate-400 font-bold rounded-lg py-2 px-4"
 						type="submit"
 					>
 						Login
 					</button>
 					<Link
-						className="inline-block align-baseline font-bold text-white text-opacity-60 hover:text-opacity-100"
+						className="inline-block align-baseline font-bold text-slate-200 hover:text-slate-400"
 						to="/signup"
 					>
 						New user? Sign up!
