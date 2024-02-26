@@ -31,10 +31,10 @@ const Dashboard = () => {
 			</div>
 			<div className='grid grid-cols-2'>
 				<div>
-					<CreatePortfolio />
-					{login.portfolio.length > 0 && <GetPortfolio />}
-					{/* <InvestmentList />
-					<CreateInvestment /> */}
+					{/* <CreatePortfolio /> */}
+					{/* {login.portfolio.length > 0 && <GetPortfolio />} */}
+					{/* <InvestmentList /> */}
+					<CreateInvestment />
 				<div>
 
 				</div>

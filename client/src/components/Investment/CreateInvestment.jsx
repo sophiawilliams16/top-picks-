@@ -6,7 +6,6 @@ import { useLoginContext } from '../../utils/LoginContext';
 
 function CreateInvestment() {
 	const { login, setLogin } = useLoginContext();
-	const { id } = useParams();
 
 	let investmentArr = login.investment;
 
@@ -54,7 +53,7 @@ function CreateInvestment() {
 			const data = await createInvestment(
 				formState.investmentName.toUpperCase(),
 				formState.investmentQuantity,
-				id,
+				login.id,
 			);
 			toastSuccess(
 				`Successfully added ${formState.investmentName}`,

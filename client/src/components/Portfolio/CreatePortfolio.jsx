@@ -82,7 +82,7 @@ function CreatePortfolio() {
 						onChange={handleChange}
 					/>
 				</div>
-				<div className=" text-sm sm:text-base">
+				<div className="text-sm sm:text-base">
 					<button
 						className="text-slate-100 bg-slate-700 font-bold rounded-full p-4 px-10"
 						type="submit"
@@ -108,7 +108,7 @@ function CreatePortfolio() {
 						onChange={handleChange}
 					/>
 				</div>
-				<div className='grid grid-cols-2 flex place-items-center'>
+				<div className="grid-cols-2 flex place-items-center">
 					<div className="text-sm sm:text-base">
 						<button
 							className="text-slate-100 bg-slate-700 font-bold rounded-full p-4 px-10"

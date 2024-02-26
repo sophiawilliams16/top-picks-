@@ -1,8 +1,8 @@
-const { Portfolio, Investment } = require('../models');
+const { Investment } = require('../models');
 
 module.exports = {
 	async createInvestment(req, res) {
-		if (!req.body.portfolioId || !req.body) {
+		if (!req.body.userId || !req.body) {
 			return res.status(401).json({ message: 'Not authorized' });
 		}
 
@@ -24,15 +24,15 @@ module.exports = {
 			);
 
 			// Update the portfolio using the investment _id
-			const portfolioUpdate = {
-				$addToSet: { investment: investmentData._id },
-			};
+			// const portfolioUpdate = {
+			// 	$addToSet: { investment: investmentData._id },
+			// };
 
-			const portfolio = await Portfolio.findByIdAndUpdate(
-				req.body.portfolioId,
-				portfolioUpdate,
-				{ new: true },
-			);
+			// const portfolio = await Portfolio.findByIdAndUpdate(
+			// 	req.body.portfolioId,
+			// 	portfolioUpdate,
+			// 	{ new: true },
+			// );
 
 			res.status(200).json(investmentData);
 		} catch (error) {
