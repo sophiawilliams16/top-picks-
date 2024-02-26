@@ -11,7 +11,6 @@ import NotFound from './pages/NotFound';
 import { StrictMode } from 'react';
 
 import './index.css';
-import Portfolio from './pages/Portfolio.jsx';
 
 const router = createBrowserRouter([
 	{
@@ -34,10 +33,6 @@ const router = createBrowserRouter([
 			{
 				path: 'dashboard',
 				element: <Dashboard />,
-			},
-			{
-				path: 'dashboard/portfolio/:id',
-				element: <Portfolio />,
 			},
 			// {
 			// 	path: 'profile',

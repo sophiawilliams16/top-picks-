@@ -1,11 +1,10 @@
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useLoginContext } from '../utils/LoginContext';
-import CreatePortfolio from '../components/Trade/Trade';
+import CreatePortfolio from '../components/Portfolio/CreatePortfolio';
 import InvestmentList from '../components/Dashboard/InvestmentList';
-import GetPortfolio from '../components/Trade/GetPortfolio';
+import GetPortfolio from '../components/Portfolio/GetPortfolio';
 import CreateInvestment from '../components/Investment/CreateInvestment';
-//import Portfolio from './Portfolio';
 
 const Dashboard = () => {
 	const { login } = useLoginContext();
@@ -32,12 +31,13 @@ const Dashboard = () => {
 			</div>
 			<div className='grid grid-cols-2'>
 				<div>
-				</div>
-				<div>
 					<CreatePortfolio />
 					{login.portfolio.length > 0 && <GetPortfolio />}
 					{/* <InvestmentList />
 					<CreateInvestment /> */}
+				<div>
+
+				</div>
 				</div>
 			</div>
 		</section>
