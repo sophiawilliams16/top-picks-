@@ -3,34 +3,34 @@ var uniqueValidator = require('mongoose-unique-validator');
 const bcrypt = require('bcrypt');
 
 const userSchema = new Schema({
-    username: {
-        type: String,
-        required: true,
-        unique: true,
-        trim: true,
-        uniqueCaseInsensitive: true,
-    },
-    email: {
-        type: String,
-        required: true,
-        unique: true,
-        trim: true,
-        match: [/.+@.+\..+/, "Must match an email address!"],
-        uniqueCaseInsensitive: true,
-    },
-    password: {
-        type: String,
-        required: true,
-        trim: true,
-        minlength: 8,
-    },
-    portfolio: [
-        {
-            type: Schema.Types.ObjectId,
-            ref: "Portfolio",
-        },
-    ],
-    cash:{
+	username: {
+		type: String,
+		required: true,
+		unique: true,
+		trim: true,
+		uniqueCaseInsensitive: true,
+	},
+	email: {
+		type: String,
+		required: true,
+		unique: true,
+		trim: true,
+		match: [/.+@.+\..+/, 'Must match an email address!'],
+		uniqueCaseInsensitive: true,
+	},
+	password: {
+		type: String,
+		required: true,
+		trim: true,
+		minlength: 8,
+	},
+	investment: [
+		{
+			type: Schema.Types.ObjectId,
+			ref: 'Investment',
+		},
+	],
+	cash: {
 		type: Number,
 		required: true,
 		trim: true,
@@ -38,16 +38,26 @@ const userSchema = new Schema({
 	},
 });
 
-userSchema.virtual("totalValue").get(function () {
-    let totalValue = this.cash || 0;
+userSchema.virtual('investmentValue').get(function () {
+	if (this.investment && this.investment.length > 0) {
+		return this.investment.reduce((sum, investment) => {
+			return sum + (investment.currentValue * investment.quantity || 0);
+		}, 0);
+	} else {
+		return 0;
+	}
+});
 
-    if (this.portfolio && this.portfolio.length > 0) {
-        totalValue += this.portfolio.reduce((sum, portfolio) => {
-            return sum + (portfolio.portfolioValue || 0);
-        }, 0);
-    }
+userSchema.virtual('totalValue').get(function () {
+	let totalValue = this.cash || 0;
 
-    return totalValue;
+	if (this.investment && this.investment.length > 0) {
+		totalValue += this.investment.reduce((sum, investment) => {
+			return sum + (this.investment.currentValue || 0);
+		}, 0);
+	}
+
+	return totalValue;
 });
 
 userSchema.pre('save', async function (next) {

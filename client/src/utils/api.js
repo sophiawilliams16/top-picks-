@@ -39,7 +39,7 @@ export const signUp = async (userData) => {
 export const createInvestment = async (
 	investmentName,
 	investmentQuantity,
-	portfolioId,
+	userId,
 ) => {
 	try {
 		const response = await fetch('/api/investment/create', {
@@ -51,7 +51,7 @@ export const createInvestment = async (
 			body: JSON.stringify({
 				investmentName,
 				investmentQuantity,
-				portfolioId,
+				userId,
 			}),
 		});
 		if (!response.ok) {
